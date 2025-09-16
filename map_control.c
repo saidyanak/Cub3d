@@ -6,13 +6,23 @@
 /*   By: syanak <syanak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 16:30:13 by syanak            #+#    #+#             */
-/*   Updated: 2025/09/16 17:21:43 by syanak           ###   ########.fr       */
+/*   Updated: 2025/09/16 17:46:27 by syanak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include <fcntl.h>
 #include <stdio.h>
+
+int	access_controls(char **av)
+{
+	char	**map;
+
+	map = copy_map(av[1]);
+	if (!map)
+		return (0);
+	return (1);
+}
 
 int	namespace_control(char **av)
 {
@@ -47,6 +57,11 @@ int	map_control(int ac, char **av)
 	else if (!(map_checker(av)))
 	{
 		printf("Error\nMap error\n");
+		return (0);
+	}
+	else if (!(access_controls(av)))
+	{
+		printf("Error\nAccess error");
 		return (0);
 	}
 	return (1);
