@@ -6,11 +6,15 @@
 /*   By: syanak <syanak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 16:05:09 by syanak            #+#    #+#             */
-/*   Updated: 2025/09/16 16:06:21 by syanak           ###   ########.fr       */
+/*   Updated: 2025/09/16 16:30:47 by syanak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(void)
+#include "cub3d.h"
+
+int	main(int ac, char **av)
 {
+	if (!(map_control(ac, av)))
+		return (1);
 	return (0);
 }

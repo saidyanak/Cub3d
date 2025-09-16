@@ -1,8 +1,9 @@
 NAME = cud3d
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-SRCS = main.c
+CC = gcc 
+CFLAGS = -g -Wall -Wextra -Werror
+SRCS = main.c \
+		map_control.c
 
 OBJS = $(SRCS:.c=.o)
 
