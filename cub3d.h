@@ -6,7 +6,7 @@
 /*   By: syanak <syanak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 16:02:22 by syanak            #+#    #+#             */
-/*   Updated: 2025/09/16 17:49:00 by syanak           ###   ########.fr       */
+/*   Updated: 2025/09/20 16:43:08 by syanak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ typedef struct s_base
 {
 }		t_base;
 
-size_t	ft_strlen(char *str);
+size_t	ft_strlen(const char *str);
 int		map_control(int ac, char **av);
 char	**copy_map(char *av);
 

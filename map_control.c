@@ -6,7 +6,7 @@
 /*   By: syanak <syanak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 16:30:13 by syanak            #+#    #+#             */
-/*   Updated: 2025/09/16 17:46:27 by syanak           ###   ########.fr       */
+/*   Updated: 2025/09/20 16:49:59 by syanak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,17 @@
 int	access_controls(char **av)
 {
 	char	**map;
+	int		i;
 
+	i = 0;
 	map = copy_map(av[1]);
 	if (!map)
 		return (0);
+	while (map[i])
+	{
+		printf("%s\n", map[i]);
+		i++;
+	}
 	return (1);
 }
 
