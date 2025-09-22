@@ -6,30 +6,13 @@
 /*   By: syanak <syanak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 16:30:13 by syanak            #+#    #+#             */
-/*   Updated: 2025/09/20 16:49:59 by syanak           ###   ########.fr       */
+/*   Updated: 2025/09/22 17:57:08 by syanak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3d.h"
 #include <fcntl.h>
 #include <stdio.h>
-
-int	access_controls(char **av)
-{
-	char	**map;
-	int		i;
-
-	i = 0;
-	map = copy_map(av[1]);
-	if (!map)
-		return (0);
-	while (map[i])
-	{
-		printf("%s\n", map[i]);
-		i++;
-	}
-	return (1);
-}
 
 int	namespace_control(char **av)
 {
@@ -47,13 +30,6 @@ int	namespace_control(char **av)
 	return (1);
 }
 
-int	map_checker(char **av)
-{
-	if (!(namespace_control(av)))
-		return (0);
-	return (1);
-}
-
 int	map_control(int ac, char **av)
 {
 	if (ac != 2)
@@ -61,14 +37,9 @@ int	map_control(int ac, char **av)
 		printf("Error\nToo many arguments. Usage: ./cub3d <path_to_map.cub>\n");
 		return (0);
 	}
-	else if (!(map_checker(av)))
+	else if (!(namespace_control(av)))
 	{
-		printf("Error\nMap error\n");
-		return (0);
-	}
-	else if (!(access_controls(av)))
-	{
-		printf("Error\nAccess error");
+		printf("Error\nMap Name Space error\n");
 		return (0);
 	}
 	return (1);
