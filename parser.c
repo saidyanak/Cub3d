@@ -6,7 +6,7 @@
 /*   By: syanak <syanak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 13:28:51 by syanak            #+#    #+#             */
-/*   Updated: 2025/09/24 17:02:47 by syanak           ###   ########.fr       */
+/*   Updated: 2025/09/24 17:23:48 by syanak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,7 +109,7 @@ int	import_map(t_base *base, char *filepath)
 	line = get_next_line(fd);
 	while (line)
 	{
-		status = handle_line(line, base->map_info);
+		status = handle_line(line, base->map_info);// texture ları ve color u alma işlemini iyice detaylı bakmak lazım
 		if (status == 0) // Hata
 			return (printf("Error\nParse Error"), free(line),
 				free_map_info(base->map_info), close(fd), 0);
@@ -123,5 +123,6 @@ int	import_map(t_base *base, char *filepath)
 	close(fd);
 	if (!validate_all_elements_found(base->map_info))
 		return (free_map_info(base->map_info), 0);
+	// burda birde player 1 tane mi diye de kontrol etmeliyiz burası onemli bi tık map de var burda
 	return (1);
 }
