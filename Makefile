@@ -5,7 +5,9 @@ CC = gcc
 CFLAGS = -g -Wall -Wextra -Werror
 SRCS = main.c \
 		map_control.c \
-		utils.c \
+		parser.c \
+		parse_utils.c \
+		ft_libft.c \
 		$(GNL)/get_next_line_utils.c \
 		$(GNL)/get_next_line.c 
 
