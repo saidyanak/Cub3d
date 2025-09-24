@@ -6,7 +6,7 @@
 /*   By: syanak <syanak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/16 16:05:09 by syanak            #+#    #+#             */
-/*   Updated: 2025/09/24 17:01:59 by syanak           ###   ########.fr       */
+/*   Updated: 2025/09/24 17:06:54 by syanak           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,10 @@ int	main(int ac, char **av)
 
 	base_init(&base);
 	if (!map_control(ac, av) || !import_map(&base, av[1]))
-	{
 		return (1);
-	}
-	// Eğer buraya geldiyse, base.map_info içinde her şey hazır demektir.
-	// Şimdi oyun motorunu başlatabilirsin.
+	// Eğer buraya geldiyse,
+	// base.map_info içinde her şey hazır demektir. Şimdi map in içerisindeki verileri karşılaştırmak lazım Oyuncu erişilebilirilk vsvs
+	// Ardından oyun motorunu başlatabilirsin.
 
 	// Oyun bittiğinde tüm hafızayı temizle
 	free_map_info(base.map_info);
