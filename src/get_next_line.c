@@ -6,8 +6,16 @@
 
 static char *str_join(char *a, const char *b)
 {
-	size_t la = a ? strlen(a) : 0;
-	size_t lb = b ? strlen(b) : 0;
+	size_t la = a;
+	size_t lb = b;
+	if (a == NULL)
+		la = 0;
+	else
+		la = strlen(a);
+	if (b == NULL)
+		lb = 0;
+	else
+		lb = strlen(b);
 	char *r = malloc(la + lb + 1);
 	if (!r) { free(a); return NULL; }
 	if (a) memcpy(r, a, la);

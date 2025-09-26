@@ -1,6 +1,3 @@
-#include "cub3d.h"
-#include <stdlib.h>
-#include <stdio.h>
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
@@ -12,6 +9,7 @@
 /*   Updated: 2025/09/26 00:00:00 by auto             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "cub3d.h"
 #include <stdlib.h>
 #include <stdio.h>
@@ -124,7 +122,10 @@ int is_map_closed(char **map)
         j = 0;
         while (j < cols)
         {
-            copy[i][j] = (j < (int)ft_strlen(map[i]) ? map[i][j] : ' ');
+            if (j < (int)ft_strlen(map[i]))
+                copy[i][j] = map[i][j];
+            else
+                copy[i][j] = ' ';
             j++;
         }
         copy[i][cols] = '\0';
