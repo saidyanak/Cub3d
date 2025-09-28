@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parse_utils.c                                      :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: syanak <syanak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+        
+	+:+     */
+/*   By: syanak <syanak@student.42kocaeli.com.tr    +#+  +:+      
+	+#+        */
+/*                                                +#+#+#+#+#+  
+	+#+           */
 /*   Created: 2025/09/16 17:04:04 by syanak            #+#    #+#             */
 /*   Updated: 2025/09/24 17:04:22 by syanak           ###   ########.fr       */
 /*                                                                            */
@@ -13,6 +16,7 @@
 #include "cub3d.h"
 #include <fcntl.h>
 #include <unistd.h>
+
 
 int	ft_isspace(char c)
 {
@@ -23,7 +27,7 @@ int	ft_isspace(char c)
 // ft_split'in ayırdığı hafızayı temizleyen yardımcı fonksiyon.
 static void	free_tokens(char **tokens)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (tokens && tokens[i])
@@ -38,7 +42,7 @@ static void	free_tokens(char **tokens)
 // Bir string'in sadece sayısal karakterlerden oluşup oluşmadığını kontrol eder.
 static int	is_str_numeric(char *str)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (str[i])
@@ -53,7 +57,7 @@ static int	is_str_numeric(char *str)
 // GNL'den gelen satırın sonundaki '\n' karakterini siler.
 static void	trim_newline(char *line)
 {
-	int	len;
+	int len;
 
 	if (!line)
 		return ;
@@ -65,7 +69,7 @@ static void	trim_newline(char *line)
 // "NO   ./path/to/file.xpm" gibi bir satırı ayrıştırır
 int	parse_texture(char *line, char **dest)
 {
-	int	i;
+	int i;
 
 	if (*dest != NULL)
 		return (printf("Error\nDuplicate texture identifier found.\n"), 0);
@@ -83,7 +87,8 @@ int	parse_texture(char *line, char **dest)
 		int fd = open(*dest, O_RDONLY);
 		if (fd < 0)
 		{
-			printf("Error\nTexture file not found or not readable: %s\n", *dest);
+			printf("Error\nTexture file not found or not readable: '%s	'\n",
+				*dest);
 			free(*dest);
 			*dest = NULL;
 			return (0);
@@ -96,10 +101,10 @@ int	parse_texture(char *line, char **dest)
 // "F 220,100,0" gibi bir satırı ayrıştırır
 int	parse_color(char *line, int *dest)
 {
-	char	**rgb_values;
-	int		colors[3];
-	int		i;
-	int		count;
+	char **rgb_values;
+	int colors[3];
+	int i;
+	int count;
 
 	if (*dest != -1)
 		return (printf("Error\nDuplicate color identifier found.\n"), 0);
@@ -141,10 +146,10 @@ int	parse_color(char *line, int *dest)
 // Harita verisini bir linked list kullanarak okur ve char** dizisine dönüştürür.
 int	read_map_grid(int fd, char *first_line, t_map_info *map_info)
 {
-	t_list	*head;
-	t_list	*current;
-	char	*line;
-	int		i;
+	t_list *head;
+	t_list *current;
+	char *line;
+	int i;
 
 	head = NULL;
 	trim_newline(first_line);

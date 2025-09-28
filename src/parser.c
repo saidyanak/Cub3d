@@ -2,9 +2,12 @@
 /*                                                                            */
 /*                                                        :::      ::::::::   */
 /*   parser.c                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: syanak <syanak@student.42kocaeli.com.tr    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
+/*                                                    +:+ +:+
+	+:+     */
+/*   By: syanak <syanak@student.42kocaeli.com.tr    +#+  +:+
+	+#+        */
+/*                                                +#+#+#+#+#+
+	+#+           */
 /*   Created: 2025/09/24 13:28:51 by syanak            #+#    #+#             */
 /*   Updated: 2025/09/24 17:23:48 by syanak           ###   ########.fr       */
 /*                                                                            */
@@ -12,10 +15,11 @@
 
 #include "cub3d.h"
 
+
 // Hata durumunda tüm ayrılmış hafızayı güvenli bir şekilde temizler.
 void	free_map_info(t_map_info *info)
 {
-	int	i;
+	int i;
 
 	if (!info)
 		return ;
@@ -43,7 +47,7 @@ void	free_map_info(t_map_info *info)
 // Okunan satırın tipini belirleyip ilgili yardımcıyı çağıran fonksiyon
 static int	handle_line(char *line, t_map_info *info)
 {
-	int	i;
+	int i;
 
 	i = 0;
 	while (ft_isspace(line[i]))
@@ -95,9 +99,9 @@ void	init_map_info(t_map_info *s_map_info)
 
 int	import_map(t_base *base, char *filepath)
 {
-	int		fd;
-	char	*line;
-	int		status;
+	int fd;
+	char *line;
+	int status;
 
 	base->map_info = malloc(sizeof(t_map_info));
 	if (!base->map_info)
@@ -109,9 +113,10 @@ int	import_map(t_base *base, char *filepath)
 	line = get_next_line(fd);
 	while (line)
 	{
-		status = handle_line(line, base->map_info);// texture ları ve color u alma işlemini iyice detaylı bakmak lazım
+		status = handle_line(line, base->map_info);
+		// texture ları ve color u alma işlemini iyice detaylı bakmak lazım
 		if (status == 0) // Hata
-			return (printf("Error\nParse Error"), free(line),
+			return (printf("Error\nParse Error\n"), free(line),
 				free_map_info(base->map_info), close(fd), 0);
 		if (status == 2) // Harita başladı
 			break ;

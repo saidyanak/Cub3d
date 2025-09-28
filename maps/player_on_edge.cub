@@ -5,10 +5,10 @@ F 220,100,0
 
 WE ./textures/west.xpm
 
-C 225,30,3
+C 22,30,3
 
 EA ./textures/east.xpm
 
-0111
+ 111
 1N001
  111

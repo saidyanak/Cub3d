@@ -1,4 +1,4 @@
-Map parse kısmında textures ler sonrasında boşluk varsa trimle
+textures ler sonrasında boşluk varsa trimle
 Mapin dışına 0 konulursa ne yapacağına karar ver
 Texturelerin .xpm ile bittiğini kontrol et
 F C colorlarının hatalarını düzelt -1 de non numeric diyor "- yi görüyor sanırım"
